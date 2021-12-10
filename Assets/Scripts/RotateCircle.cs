@@ -6,12 +6,17 @@ public class RotateCircle : MonoBehaviour
 
     private void Awake()
     {
-        if(GameManager.instance.isPlayed)
-            rotateSpeed = PlayerPrefs.GetInt("Speed");
+        if (GameManager.instance != null)
+        {
+            if (GameManager.instance.isPlayed)
+                rotateSpeed = PlayerPrefs.GetInt("Speed", 100);
+        }
     }
 
     void Update()
     {
         transform.Rotate(0, 0, Time.deltaTime * rotateSpeed);
     }
+
+    
 }

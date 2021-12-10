@@ -106,4 +106,10 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Speed", 100);
     }
 
+    private void OnApplicationQuit()
+    {
+        score = 0;
+        PlayerPrefs.SetInt("Score", score);
+    }
+
 }
